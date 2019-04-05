@@ -6,7 +6,7 @@ class Response
 	public static $response;
 
 	public static function init($response){
-		pritn_r($response);
+		print_r($response);
 		self::$response = $response;
 	}
 
