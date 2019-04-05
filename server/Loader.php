@@ -9,11 +9,20 @@ class Loader
 
 	//自定义静态加载方法
 	public static function k_autoload($className){
-		print_r($className);
+		print_r(ROOT_PAHT);
 		$className = trim($className,'\\');
 		$pathArr = explode('\\', $className);
-		print_r($pathArr);
+
+		$filePath = ROOT_PAHT;
+		foreach($pathArr as $v){
+			$filePath .= $v;
+		}
+
+		$filePath .= '.php';
 		
+		print_r($pathArr);
+		print_r($filePath);
+
 
 		/*$baseClassName = basename(str_replace('\\', '/',$className));
 		
