@@ -25,7 +25,7 @@ class Loader
 		print_r($file);
 
 		if(file_exists($file)){
-			echo '哈哈'；
+			echo '哈哈';
 		}
 
 
