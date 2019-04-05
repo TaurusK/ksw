@@ -48,8 +48,8 @@ class Server
 
 	//http请求处理
 	public function onRequest($request,$response){
-		print_r($request->server['path_info']);
-
+		Request::init($request);
+		Response::init($response);
 		$response->end('123');
 	}
 

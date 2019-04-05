@@ -8,4 +8,4 @@ define('SERVER_PATH', __DIR__ . '/');
 require_once SERVER_PATH . 'init.php';
 
 //运行服务
-server\App::run();
+//server\App::run();
