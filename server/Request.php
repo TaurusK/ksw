@@ -33,7 +33,7 @@ class Request
 			return ['error'=>'调用错误，请使用pathinfo路径调用'];
 		}
 
-		$className = '\application\\' . $pathArr[0] . '\controller\\' . ucfirst($pathArr[1]);
+		$className = '\app\\' . $pathArr[0] . '\controller\\' . ucfirst($pathArr[1]);
 
 		return [
 			'className' => $className,
