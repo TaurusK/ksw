@@ -48,8 +48,8 @@ class Server
 
 	//http请求处理
 	public function onRequest($request,$response){
-		server\Request::init($request);
 		server\Response::init($response);
+		server\Request::init($request);
 	}
 
 	//WebSocket处理
