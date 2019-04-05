@@ -10,6 +10,7 @@ class Loader
 	//自定义静态加载方法
 	public static function k_autoload($className){
 		print_r(ROOT_PATH);
+		echo PHP_EOL;
 		$className = trim($className,'\\');
 		$pathArr = explode('\\', $className);
 
@@ -17,11 +18,16 @@ class Loader
 		foreach($pathArr as $v){
 			$filePath .= $v . '/';
 		}
-		//$filePath = rtrim($filePath,'/');
-		$filePath .= '.php';
+		$filePath = rtrim($filePath,'/');
+		$file = $filePath . '.php';
 
 		print_r($pathArr);
-		print_r($filePath);
+		print_r($file);
+
+		if(file_exists($file)){
+			echo '哈哈'；
+		}
+
 
 
 		/*$baseClassName = basename(str_replace('\\', '/',$className));
