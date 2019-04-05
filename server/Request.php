@@ -9,18 +9,23 @@ class Request
 		self::$request = $request;
 		$pathinfo = self::$request->server['path_info'];
 
-		$className = self::getClassName($pathinfo);
+		//获取调用信息
+		$classInfo = self::getClassInfo($pathinfo);
 
-		if(isset($className['error'])){
-			return $className['error'];
+		if(isset($classInfo['error'])){
+			return $classInfo['error'];
 		}
 
-		return $className;
-		
-		
+		//调用指定方法
+		$className = $classInfo['className'];
+		$action = $classInfo['action'];
+		$res = (new $className())->$action();
+
+		return $res;
 	}
 
-	public static function getClassName($pathinfo){
+	//解析pathinfo路径获取调用信息
+	public static function getClassInfo($pathinfo){
 		$pathStr = trim($pathinfo,'/');
 		$pathArr = explode('/', $pathStr);
 
@@ -28,13 +33,11 @@ class Request
 			return ['error'=>'调用错误，请使用pathinfo路径调用'];
 		}
 
-		$className = $pathArr[0] . '\\' . ucfirst($pathArr[1]) . '\\' . $pathArr[2];
+		$className = '\\' . $pathArr[0] . '\\' . ucfirst($pathArr[1]);
 
-
-		print_r($pathStr);
-		print_r($pathArr);
-		print_r($className);
-
-		return $className;
+		return [
+			'className' => $className,
+			'action'    => $pathArr[2],
+		];
 	}
 }
