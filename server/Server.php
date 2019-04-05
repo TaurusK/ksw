@@ -5,7 +5,7 @@ class Server
 	public $server = null;
 	public function __construct(){
 		$this->server = new Swoole\WebSocket\Server("0.0.0.0", 8801);
-		
+
 		//设置选项
 		$this->server->set([
 			//启用进程数
@@ -15,6 +15,8 @@ class Server
 		]);
 
 		//+----------------------事件注册----------------------
+		//此事件在Worker进程/Task进程启动时发生,可用于热加载一些公共文件
+		$this->ws->on('WorkerStart',[$this,'onWorkerStart']);
 		//http
 		//请求
 		$this->server->on('request',[$this,'onRequest']);
@@ -38,11 +40,17 @@ class Server
 
 
 	//+-----------------事件处理-----------------------
+	
+	//onWorkerStart
+	public function onWorkerStart($server,$worker_id){
+
+	}
+
 	//http请求处理
 	public function onRequest($request,$response){
-		print_r($request);
+		print_r($request->server['path_info']);
 
-		//$response->end('123');
+		$response->end('123');
 	}
 
 	//WebSocket处理
