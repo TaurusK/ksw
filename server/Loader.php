@@ -9,12 +9,12 @@ class Loader
 
 	//自定义静态加载方法
 	public static function k_autoload($className){
-		print_r(ROOT_PATH);
-		echo PHP_EOL;
+
 		$className = trim($className,'\\');
 		$pathArr = explode('\\', $className);
-		$filePath = ROOT_PATH;
+		$filePath = '';
 
+		//解析路径
 		foreach($pathArr as $key => $v){
 			if($key == 0 && $v == 'app'){
 				$filePath .= 'application/';
@@ -30,9 +30,9 @@ class Loader
 		print_r($file);
 
 		if(file_exists($file)){
-			echo '哈哈';
+			require_once ROOT_PATH . $file;
 		}else{
-			echo EXTEND_PATH;
+			require_once EXTEND_PATH . $file;
 		}
 
 
