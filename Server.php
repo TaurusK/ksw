@@ -4,7 +4,8 @@ class Server
 	
 	public $server = null;
 	public function __construct(){
-		$this->server = new Swoole\WebSocket\Server("0.0.0.0", 6000);
+		//$this->server = new Swoole\WebSocket\Server("0.0.0.0", 6000);
+		$this->server = new swoole_websocket_server("0.0.0.0", 6000);
 		//设置选项
 		$this->server->set([
 			//启用进程数
