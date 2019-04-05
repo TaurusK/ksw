@@ -6,7 +6,7 @@ class Request
 	public static $request;
 
 	public static function init($request){
-		pritn_r($request);
+		print_r($request);
 		self::$request = $request;
 	}
 }
