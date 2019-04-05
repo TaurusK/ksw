@@ -5,7 +5,7 @@ class Server
 	public $server = null;
 	public function __construct(){
 		//$this->server = new Swoole\WebSocket\Server("0.0.0.0", 6000);
-		$this->server = new swoole_websocket_server("0.0.0.0", 6000);
+		$this->server = new swoole_websocket_serverg("0.0.0.0", 6000);
 		//设置选项
 		$this->server->set([
 			//启用进程数
@@ -41,6 +41,8 @@ class Server
 	//http请求处理
 	public function onRequest($request,$response){
 		print_r($request);
+
+		$response->end('123');
 	}
 
 	//WebSocket处理
