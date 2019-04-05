@@ -23,8 +23,11 @@ class Request
 
 		$className = $pathArr[0] . '\\' . ucfirst($pathArr[1]) . '\\' . $pathArr[2];
 
+
 		print_r($pathStr);
 		print_r($pathArr);
 		print_r($className);
+
+		Response::send('ok');
 	}
 }
