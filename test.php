@@ -1,5 +1,5 @@
 <?php
-function saveLog($path='gd_mobile',$msg)
+function saveLog($path='default',$msg)
 {
     \SeasLog::setLogger($path);
     \SeasLog::info($msg);
