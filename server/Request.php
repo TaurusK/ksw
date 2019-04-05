@@ -1,8 +1,6 @@
 <?php
 namespace server;
 
-use Response;
-
 class Request
 {
 	public static $request;
