@@ -48,8 +48,8 @@ class Server
 
 	//http请求处理
 	public function onRequest($request,$response){
-		Request::init($request);
-		Response::init($response);
+		server\Request::init($request);
+		server\Response::init($response);
 		$response->end('123');
 	}
 
