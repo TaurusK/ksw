@@ -13,11 +13,16 @@ class Loader
 		echo PHP_EOL;
 		$className = trim($className,'\\');
 		$pathArr = explode('\\', $className);
-
 		$filePath = ROOT_PATH;
-		foreach($pathArr as $v){
-			$filePath .= $v . '/';
+
+		foreach($pathArr as $key => $v){
+			if($key == 0 && $v == 'app'){
+				$filePath .= 'application/';
+			}else{
+				$filePath .= $v . '/';
+			}
 		}
+
 		$filePath = rtrim($filePath,'/');
 		$file = $filePath . '.php';
 
@@ -26,7 +31,13 @@ class Loader
 
 		if(file_exists($file)){
 			echo '哈哈';
+		}else{
+			echo EXTEND_PATH;
 		}
+
+
+
+
 
 
 
