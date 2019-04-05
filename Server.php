@@ -6,7 +6,7 @@ class Server
 	public function __construct(){
 		$this->server = new Swoole\WebSocket\Server("0.0.0.0", 6000);
 		//设置选项
-		$this->ws->set([
+		$this->server->set([
 			//启用进程数
 			'worker_num' => 4,    //worker process num
 			//启用task进程数
@@ -20,19 +20,19 @@ class Server
 
 		//WebSocket
 		//连接打开事件
-		$this->ws->on('open', [$this,"onOpen"]);
+		$this->server->on('open', [$this,"onOpen"]);
 		//接收消息事件
-		$this->ws->on('message', [$this,'onMessage']);
+		$this->server->on('message', [$this,'onMessage']);
 		//连接关闭事件
-		$this->ws->on('close', [$this,'onClose']);
+		$this->server->on('close', [$this,'onClose']);
 
 		//task
-		$this->ws->on('task',[$this,'onTask']);
-		$this->ws->on('finish',[$this,'onFinish']);
+		$this->server->on('task',[$this,'onTask']);
+		$this->server->on('finish',[$this,'onFinish']);
 		
 
 		//开启服务
-		$this->ws->start();
+		$this->server->start();
 	}
 
 
