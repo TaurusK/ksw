@@ -8,6 +8,7 @@ class Request
 	public static function init($request){
 		self::$request = $request;
 		$pathinfo = self::$request->server['path_info'];
-		print_r($pathinfo);
+		$pathArr = explode('/', $pathinfo);
+		print_r($pathArr);
 	}
 }

@@ -50,6 +50,8 @@ class Server
 	public function onRequest($request,$response){
 		server\Request::init($request);
 		server\Response::init($response);
+
+		$response->end();
 	}
 
 	//WebSocket处理
