@@ -11,7 +11,7 @@ class Request
 
 		$className = self::getClassName($pathinfo);
 
-		if(iseet($className['error'])){
+		if(isset($className['error'])){
 			return $className['error'];
 		}
 
