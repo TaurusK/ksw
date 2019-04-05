@@ -43,7 +43,7 @@ class Server
 	
 	//onWorkerStart
 	public function onWorkerStart($server,$worker_id){
-		require_once 'start.php';
+		require_once __DIR__ . '/start.php';
 	}
 
 	//http请求处理
@@ -77,4 +77,4 @@ class Server
 
 }
 
-new Server();
+//new Server();
