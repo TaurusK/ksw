@@ -9,7 +9,7 @@ class Request
 		self::$request = $request;
 		$pathinfo = self::$request->server['path_info'];
 		$pathStr = trim($pathinfo,'/');
-		$pathArr = explode('/', $pathinfo);
+		$pathArr = explode('/', $pathStr);
 		print_r($pathStr);
 		print_r($pathArr);
 	}
