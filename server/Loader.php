@@ -1,7 +1,7 @@
 <?php
 namespace server;
 
-class App
+class Loader
 {
 	public function __construct(){
 
