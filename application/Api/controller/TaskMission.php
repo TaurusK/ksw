@@ -29,6 +29,8 @@ class TaskMission
 		$post = Request::post();
 		print_r($post);
 		saveLog('TaskMission',json_encode($post));
+
+		return 'test ok';
 	}
 
 }

@@ -12,7 +12,7 @@ class TaskDispose
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
 			$https = new Khttps();
-			$res = $https->send_post($url,'123456');
+			$res = $https->send_post($url,$data);
 
 			saveLog('TaskDispose',json_encode($res));
 		}
