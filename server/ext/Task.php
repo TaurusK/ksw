@@ -20,13 +20,13 @@ class Task
 			$module = $data['module'];
 			$controller = $data['controller'];
 			$method = $data['method'];
-			$callbackUrl = isset($data['callbackUrl'])?$data['callbackUrl']:'';
+			//$callbackUrl = isset($data['callbackUrl'])?$data['callbackUrl']:'';
 
-			$data = $data['data'];
+			$data = $data['post'];
 
 			$className = "\app\\{$module}\\controller\\{$controller}";
 			$obj = new $className();
-			$obj->$method($serv,$data,$callbackUrl);
+			$obj->$method($serv,$data);
 		}
 	}
 }

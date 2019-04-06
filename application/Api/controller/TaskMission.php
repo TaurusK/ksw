@@ -9,12 +9,16 @@ class TaskMission
 
 	//任务转发
 	public function transpond(){
-
-		$get = Request::get();
 		$post = Request::post();
-		$data = 'task，哈哈';
+		$data = [
+			'module' => 'Task',
+			'controller' => 'Task',
+			'method'     => 'transpond',
+			'post'       => $post,
+		];
+		
 		//任务转发处理
-		//Task::transpond($data);
+		Task::transpond($data);
 
 		return json_encode([
 			'get' => $get,
