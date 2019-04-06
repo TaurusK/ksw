@@ -41,6 +41,7 @@ class TaskMission
 			});
 		}
 
+		print_r('123');
 		return 'afterTask';
 	}
 
