@@ -8,5 +8,6 @@ define('EXTEND_PATH', ROOT_PATH . 'extend/');
 
 
 require_once SERVER_PATH . 'Loader.php';
+require_once SERVER_PATH . 'Task.php';
 require_once SERVER_PATH . 'Request.php';
 require_once SERVER_PATH . 'Response.php';
