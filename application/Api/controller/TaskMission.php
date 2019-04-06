@@ -18,7 +18,7 @@ class TaskMission
 		];
 		
 		//任务转发处理
-		Task::transpond($data);
+		Task::generalTask($data);
 
 		return json_encode([
 			'get' => $get,
