@@ -46,6 +46,8 @@ class TaskMission
 	}
 
 	public function curl_2(){
+
+		sleep(10);
 		return 'ok';
 	}
 
