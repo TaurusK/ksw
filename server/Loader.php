@@ -26,8 +26,8 @@ class Loader
 		$filePath = rtrim($filePath,'/');
 		$file = $filePath . '.php';
 
-		print_r($pathArr);
-		print_r($file);
+		//print_r($pathArr);
+		//print_r($file);
 
 		if(file_exists($file)){
 			require_once ROOT_PATH . $file;

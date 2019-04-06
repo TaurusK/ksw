@@ -25,4 +25,9 @@ class TaskMission
 		]);
 	}
 
+	public function callback_test(){
+		$post = Request::post();
+		saveLog('TaskMission',json_encode($post));
+	}
+
 }
