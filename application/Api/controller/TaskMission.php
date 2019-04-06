@@ -40,7 +40,7 @@ class TaskMission
 		$https = new Khttps();
 		$https->setOption([
 			CURLOPT_NOSIGNAL => 1,
-			CURLOPT_TIMEOUT_MS => 1,
+			CURLOPT_TIMEOUT_MS => 100,
 		]);
 
 		$url = 'http://182.61.46.108:8801/Api/TaskMission/curl_2';
