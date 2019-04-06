@@ -54,7 +54,7 @@ class TaskMission
 
 			$https = new Khttps();
 			swoole_timer_tick($millisec,function () use ($https,$url,$data,$millisec){
-				saveLog('TaskMission/setInterval','定时任务: '.$url. ' | 设置的时间：'.$millisec);
+				//saveLog('TaskMission/setInterval','定时任务: '.$url. ' | 设置的时间：'.$millisec);
 				$https->send_post($url,$data);
 			});
 		}
