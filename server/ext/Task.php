@@ -26,7 +26,7 @@ class Task
 
 			$className = "\app\\{$module}\\controller\\{$controller}";
 			$obj = new $className();
-			$obj->$method($serv,$data);
+			$obj->$method($server,$data);
 		}
 	}
 }
