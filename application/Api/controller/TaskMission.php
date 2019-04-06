@@ -27,12 +27,12 @@ class TaskMission
 	}
 
 	//延时任务
-	public function afterTask(){
+	public function setTimeout(){
 		$data = Request::post();
 
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
-			$after_time_ms = $data['after_time'];
+			$after_time_ms = $data['millisec'];
 
 			$https = new Khttps();
 			swoole_timer_after($after_time_ms,function () use ($https,$url,$data){
@@ -44,6 +44,27 @@ class TaskMission
 		print_r('123');
 		return 'afterTask';
 	}
+
+	//定时任务
+	public function setInterval(){
+		$data = Request::post();
+
+		if(isset($data['callBackUrl'])){
+			$url = $data['callBackUrl'];
+			$after_time_ms = $data['millisec'];
+
+			$https = new Khttps();
+			swoole_timer_tick($after_time_ms,function () use ($https,$url,$data){
+				$res = $https->send_post($url,$data);
+				saveLog('TaskDispose',json_encode($res));
+			});
+		}
+
+		print_r('123');
+		return 'afterTask';
+	}
+
+
 
 	public function callback_test(){
 		$post = Request::post();
