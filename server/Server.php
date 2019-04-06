@@ -45,7 +45,7 @@ class Server
 	public function onWorkerStart($server,$worker_id){
 		require_once __DIR__ . '/start.php';
 		//注册服务
-		new server\ext\Task($server);
+		server\ext\Task::init($server);
 	}
 
 	//http请求处理
