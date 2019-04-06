@@ -35,14 +35,13 @@ class TaskMission
 			$millisec = $data['millisec'];
 
 			$https = new Khttps();
-			swoole_timer_after($millisec,function () use ($https,$url,$data){
-				$res = $https->send_post($url,$data);
-				saveLog('TaskDispose',json_encode($res));
+			swoole_timer_after($millisec,function () use ($https,$url,$data,$millisec){
+				saveLog('TaskDispose/setTimeout','延时任务: '.$url. ' | 设置的时间：'.$millisec);
+				$https->send_post($url,$data);
+				
 			});
 		}
-
-		print_r('123');
-		return 'afterTask';
+		return 'setTimeout ok';
 	}
 
 	//定时任务
@@ -54,14 +53,12 @@ class TaskMission
 			$millisec = $data['millisec'];
 
 			$https = new Khttps();
-			swoole_timer_tick($millisec,function () use ($https,$url,$data){
-				$res = $https->send_post($url,$data);
-				saveLog('TaskDispose',json_encode($res));
+			swoole_timer_tick($millisec,function () use ($https,$url,$data,$millisec){
+				saveLog('TaskDispose/setInterval','定时任务: '.$url. ' | 设置的时间：'.$millisec);
+				$https->send_post($url,$data);
 			});
 		}
-
-		print_r('123');
-		return 'afterTask';
+		return 'setInterval ok';
 	}
 
 
@@ -70,8 +67,6 @@ class TaskMission
 		$post = Request::post();
 		print_r($post);
 		saveLog('TaskMission',json_encode($post));
-
-		return 'afterTask ok';
 	}
 
 
