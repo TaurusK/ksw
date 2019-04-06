@@ -54,7 +54,7 @@ class TaskMission
 
 		sleep(10);
 		saveLog('TaskMission','curl_2');
-		return 'ok';
+		//return 'ok';
 	}
 
 }
