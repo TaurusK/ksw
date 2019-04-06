@@ -11,6 +11,7 @@ class Task
 
 	//普通任务投递
 	public static function generalTask($data){
+		print_r(self::$serve);
 		self::$server->task($data);
 	}
 }
