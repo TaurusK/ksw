@@ -32,10 +32,10 @@ class TaskMission
 
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
-			$after_time_ms = $data['millisec'];
+			$millisec = $data['millisec'];
 
 			$https = new Khttps();
-			swoole_timer_after($after_time_ms,function () use ($https,$url,$data){
+			swoole_timer_after($millisec,function () use ($https,$url,$data){
 				$res = $https->send_post($url,$data);
 				saveLog('TaskDispose',json_encode($res));
 			});
@@ -51,10 +51,10 @@ class TaskMission
 
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
-			$after_time_ms = $data['millisec'];
+			$millisec = $data['millisec'];
 
 			$https = new Khttps();
-			swoole_timer_tick($after_time_ms,function () use ($https,$url,$data){
+			swoole_timer_tick($millisec,function () use ($https,$url,$data){
 				$res = $https->send_post($url,$data);
 				saveLog('TaskDispose',json_encode($res));
 			});
