@@ -27,6 +27,7 @@ class TaskMission
 
 	public function callback_test(){
 		$post = Request::post();
+		print_r($post)
 		saveLog('TaskMission',json_encode($post));
 	}
 
