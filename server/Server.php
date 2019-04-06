@@ -70,6 +70,7 @@ class Server
 	
 	//task处理
 	public function onTask($server,$task_id,$src_worker_id,$data){
+		sleep(30);
 		print_r($data);
 	}
 
