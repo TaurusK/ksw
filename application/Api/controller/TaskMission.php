@@ -3,6 +3,7 @@ namespace app\Api\controller;
 
 use server\ext\Task;
 use server\Request;
+use Khttps;
 
 class TaskMission
 {
