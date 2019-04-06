@@ -47,7 +47,7 @@ class TaskMission
 		$t1 = microtime(true);
 		$res = $https->send_post($url);
 		$t2 = microtime(true);
-		echo '响应数据：'.$res.' 耗时'.round($t2-$t1,3).PHP_EOL;
+		echo '响应数据：'.json_encode($res).' 耗时'.round($t2-$t1,3).PHP_EOL;
 	}
 
 	public function curl_2(){
