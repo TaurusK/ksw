@@ -33,4 +33,19 @@ class TaskMission
 		return 'test ok';
 	}
 
+
+	public function curl_1(){
+		
+		$https = new Khttps();
+		$url = 'http://182.61.46.108:8801/Api/TaskMission/curl_2';
+		$t1 = microtime(true);
+		$res = $https->send_post($url);
+		$t2 = microtime(true);
+		echo '响应数据：'.$res.' 耗时'.round($t2-$t1,3).PHP_EOL;
+	}
+
+	public function curl_2(){
+		return 'ok';
+	}
+
 }
