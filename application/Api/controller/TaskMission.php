@@ -52,7 +52,7 @@ class TaskMission
 
 	public function curl_2(){
 
-		sleep(10);
+		//sleep(10);
 		saveLog('TaskMission','curl_2');
 		//return 'ok';
 	}
