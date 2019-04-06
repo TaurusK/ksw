@@ -26,12 +26,30 @@ class TaskMission
 		]);
 	}
 
+	//延时任务
+	public function afterTask(){
+		$data = Request::post();
+
+		if(isset($data['callBackUrl'])){
+			$url = $data['callBackUrl'];
+			$after_time_ms = $data['after_time'];
+
+			$https = new Khttps();
+			swoole_timer_after($after_time_ms,function () use ($https,$url,$data){
+				$res = $https->send_post($url,$data);
+				saveLog('TaskDispose',json_encode($res));
+			});
+		}
+
+		return 'afterTask';
+	}
+
 	public function callback_test(){
 		$post = Request::post();
 		print_r($post);
 		saveLog('TaskMission',json_encode($post));
 
-		return 'test ok';
+		return 'afterTask ok';
 	}
 
 
