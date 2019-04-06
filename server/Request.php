@@ -40,4 +40,24 @@ class Request
 			'action'    => $pathArr[2],
 		];
 	}
+
+	//获取get数据
+	public static function get(){
+		return self::$request->get;
+	}
+
+	//获取post数据
+	public static function post(){
+		return self::$request->post;
+	}
+
+	//获取file数据
+	public static function file(){
+		return self::$request->file;
+	}
+
+	//获取server数据
+	public static function server(){
+		return self::$request->server;
+	}
 }

@@ -11,7 +11,22 @@ class Task
 
 	//普通任务投递
 	public static function generalTask($data){
-		print_r(self::$server);
 		self::$server->task($data);
+	}
+
+	//task数据处理
+	public static function taskDataDispose($server,$data){
+		if(is_array($data)){
+			$module = $data['module'];
+			$controller = $data['controller'];
+			$method = $data['method'];
+			$callbackUrl = isset($data['callbackUrl'])?($data['callbackUrl']:'';
+
+			$data = $data['data'];
+
+			$className = "\app\\{$module}\\controller\\{$controller}";
+			$obj = new $className();
+			$obj->$method($serv,$data,$callbackUrl);
+		}
 	}
 }
