@@ -4,7 +4,7 @@ namespace app\Api\controller;
 use server\ext\Task;
 use server\Request;
 
-class Task
+class TaskMission
 {
 
 	//任务转发
