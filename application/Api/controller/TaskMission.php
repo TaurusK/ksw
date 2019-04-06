@@ -12,7 +12,7 @@ class TaskMission
 		$post = Request::post();
 		$data = [
 			'module' => 'Task',
-			'controller' => 'Task',
+			'controller' => 'TaskDispose',
 			'method'     => 'transpond',
 			'post'       => $post,
 		];
@@ -21,7 +21,6 @@ class TaskMission
 		Task::generalTask($data);
 
 		return json_encode([
-			'get' => $get,
 			'post' => $post,
 		]);
 	}

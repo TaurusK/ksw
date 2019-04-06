@@ -3,7 +3,7 @@ namespace app\Task\controller;
 
 use server\ext\Task;
 
-class Task
+class TaskDispose
 {
 	public function transpond($server,$data){
 		
