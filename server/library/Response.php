@@ -1,5 +1,5 @@
 <?php
-namespace server;
+namespace server\library;
 
 class Response
 {

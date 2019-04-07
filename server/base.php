@@ -7,12 +7,12 @@ define('SERVER_PATH', ROOT_PATH . 'server/');
 define('EXTEND_PATH', ROOT_PATH . 'extend/');
 
 //服务扩展目录
-define('EXT_PATH', SERVER_PATH . 'ext/');
+define('LIB_PATH', SERVER_PATH . 'library/');
 
 
-require_once SERVER_PATH . 'Loader.php';
-require_once SERVER_PATH . 'Request.php';
-require_once SERVER_PATH . 'Response.php';
+require_once LIB_PATH . 'Loader.php';
+// require_once SERVER_PATH . 'Request.php';
+// require_once SERVER_PATH . 'Response.php';
 
 require_once APP_PATH . 'common.php';
-require_once EXT_PATH . 'Task.php';
+// require_once LIB_PATH . 'Task.php';

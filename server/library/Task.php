@@ -1,5 +1,5 @@
 <?php
-namespace server\ext;
+namespace server\library;
 
 class Task
 {
