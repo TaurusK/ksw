@@ -3,5 +3,5 @@
 return [
 	'port' => '8801',
 	'worker_num' => 4,
-	'task_worker_num' => 10,
+	'task_worker_num' => 64,
 ];
