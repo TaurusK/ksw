@@ -30,7 +30,6 @@ class TaskMission
 	public function setTimeout(){
 		$data = Request::post();
 		print_r($data);
-
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
 			$millisec = $data['millisec'];
@@ -65,7 +64,8 @@ class TaskMission
 
 
 	public function callback_test(){
-		print_r($post);
+		$post = Request::post();
+		
 		saveLog('TaskMission',json_encode($post));
 	}
 
