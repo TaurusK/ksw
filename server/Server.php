@@ -11,7 +11,7 @@ class Server
 			//启用进程数
 			'worker_num' => $conf['worker_num'], //4,    //worker process num
 			//启用task进程数
-			'task_worker_num' => , $conf['task_worker_num']//10
+			'task_worker_num' => $conf['task_worker_num'], //10
 		]);
 
 		//+----------------------事件注册----------------------
