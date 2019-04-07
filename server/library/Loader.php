@@ -43,4 +43,4 @@ class Loader
 }
 
 //注册自动加载类
-spl_autoload_register('\server\Loader::k_autoload');
+spl_autoload_register('\server\library\Loader::k_autoload');
