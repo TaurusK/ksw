@@ -20,7 +20,6 @@ class Task
 			$module = $data['module'];
 			$controller = $data['controller'];
 			$method = $data['method'];
-			//$callbackUrl = isset($data['callbackUrl'])?$data['callbackUrl']:'';
 
 			$data = $data['post'];
 

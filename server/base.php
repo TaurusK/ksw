@@ -11,8 +11,5 @@ define('LIB_PATH', SERVER_PATH . 'library/');
 
 
 require_once LIB_PATH . 'Loader.php';
-// require_once SERVER_PATH . 'Request.php';
-// require_once SERVER_PATH . 'Response.php';
 
 require_once APP_PATH . 'common.php';
-// require_once LIB_PATH . 'Task.php';

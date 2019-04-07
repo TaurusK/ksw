@@ -17,7 +17,7 @@ class TaskMission
 			'method'     => 'transpond',
 			'post'       => $post,
 		];
-		
+		print_r($data);
 		//任务转发处理
 		Task::generalTask($data);
 
@@ -29,6 +29,7 @@ class TaskMission
 	//延时任务
 	public function setTimeout(){
 		$data = Request::post();
+		print_r($data);
 
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
@@ -64,7 +65,6 @@ class TaskMission
 
 
 	public function callback_test(){
-		$post = Request::post();
 		print_r($post);
 		saveLog('TaskMission',json_encode($post));
 	}
