@@ -17,6 +17,9 @@ class Server
 		//+----------------------事件注册----------------------
 		//此事件在Worker进程/Task进程启动时发生,可用于热加载一些公共文件
 		$this->server->on('WorkerStart',[$this,'onWorkerStart']);
+
+		$this->ws->on('start',[$this,'onStart']);
+
 		//http
 		//请求
 		$this->server->on('request',[$this,'onRequest']);
@@ -77,6 +80,11 @@ class Server
 
 	public function onFinish($server,$task_id,$data){
 
+	}
+
+	//启动后主进程的回调
+	public function onStart($server){
+		cli_set_process_title('ksw');
 	}
 
 }
