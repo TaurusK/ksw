@@ -17,19 +17,17 @@ class TaskMission
 			'method'     => 'transpond',
 			'post'       => $post,
 		];
-		print_r($data);
+
 		//任务转发处理
 		Task::generalTask($data);
 
-		return json_encode([
-			'post' => $post,
-		]);
+		return 'ok';
 	}
 
 	//延时任务
 	public function setTimeout(){
 		$data = Request::post();
-		print_r($data);
+
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
 			$millisec = $data['millisec'];
