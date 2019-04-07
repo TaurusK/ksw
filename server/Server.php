@@ -3,15 +3,15 @@ class Server
 {
 	
 	public $server = null;
-	public function __construct(){
-		$this->server = new Swoole\WebSocket\Server("0.0.0.0", 8801);
+	public function __construct($conf){
+		$this->server = new Swoole\WebSocket\Server("0.0.0.0", $conf['port']);
 
 		//设置选项
 		$this->server->set([
 			//启用进程数
-			'worker_num' => 4,    //worker process num
+			'worker_num' => $conf['worker_num'], //4,    //worker process num
 			//启用task进程数
-			'task_worker_num' => 10
+			'task_worker_num' => , $conf['task_worker_num']//10
 		]);
 
 		//+----------------------事件注册----------------------
@@ -81,4 +81,4 @@ class Server
 
 }
 
-//new Server();
+$conf = require_once('config.php');
