@@ -18,7 +18,7 @@ class Server
 		//此事件在Worker进程/Task进程启动时发生,可用于热加载一些公共文件
 		$this->server->on('WorkerStart',[$this,'onWorkerStart']);
 
-		$this->ws->on('start',[$this,'onStart']);
+		$this->server->on('start',[$this,'onStart']);
 
 		//http
 		//请求
