@@ -45,14 +45,14 @@ class Server
 	public function onWorkerStart($server,$worker_id){
 		require_once __DIR__ . '/start.php';
 		//注册服务
-		server\ext\Task::init($server);
+		server\library\Task::init($server);
 	}
 
 	//http请求处理
 	public function onRequest($request,$response){
-		$res = server\Request::init($request);
-		server\Response::init($response);
-		server\Response::send($res);
+		$res = server\library\Request::init($request);
+		server\library\Response::init($response);
+		server\library\Response::send($res);
 	}
 
 	//WebSocket处理
@@ -70,7 +70,7 @@ class Server
 	
 	//task处理
 	public function onTask($server,$task_id,$src_worker_id,$data){
-		server\ext\Task::taskDataDispose($server,$data);
+		server\library\Task::taskDataDispose($server,$data);
 
 		return 'ok';
 	}
