@@ -7,7 +7,7 @@ class TaskDispose
 {
 	public function transpond($server,$data){
 		
-		print_r($data);
+		//print_r($data);
 
 		if(isset($data['callBackUrl'])){
 			$url = $data['callBackUrl'];
